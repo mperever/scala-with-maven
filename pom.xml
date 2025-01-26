@@ -12,8 +12,9 @@
     <properties>
         <revision>1.0-SNAPSHOT</revision>
         <scala.version>3.4.0</scala.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+		<!-- TODO: Try to not use maven.compiler properties -->
+        <!-- <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target> -->
     </properties>
 
     <dependencyManagement>
@@ -53,6 +54,11 @@
                     <groupId>org.scalatest</groupId>
                     <artifactId>scalatest-maven-plugin</artifactId>
                     <version>2.2.0</version>
+                    <configuration>
+                        <!-- TODO: Try to pass configuration from the code -->
+                        <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                        <junitxml>.</junitxml>
+                    </configuration>
                     <executions>
                         <execution>
                             <goals>
